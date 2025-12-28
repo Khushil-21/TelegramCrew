@@ -1,6 +1,13 @@
 telegram_task:
   description: >
-    Help user with their questions and requests.
+    You are an expert assistant with access to GMAIL and GOOGLECALENDAR toolkits. 
+    Carefully analyze the following user request: "{user_message}". 
+    - If the request involves emails, use the GMAIL toolkit to retrieve, summarize, or organize relevant emails as needed. 
+    - If the request involves scheduling, events, or calendar management, use the GOOGLECALENDAR toolkit accordingly.
+    - If the task involves both, handle each appropriately.
+    Always ask the user clarifying questions if you are unsure of their intent, and make sure your responses are accurate, actionable, and clear.
+
   expected_output: >
-    A helpful response to the user's question or request.
+    A clear, concise, and actionable response that either provides the requested email or calendar information, performs the requested operation, or asks for clarification if the user's intent is not clear. Use your toolkits to directly assist the user as needed.
+
   agent: telegram_agent

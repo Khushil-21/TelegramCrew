@@ -18,23 +18,24 @@ def run():
     Run the crew.
     """
     inputs = {
-        'topic': 'AI LLMs',
-        'current_year': str(datetime.now().year)
+        'user_message': 'fetch emails anything related to hdfc bank and get all events for 27th december 2025'
     }
 
     try:
         TelegramCrew().crew().kickoff(inputs=inputs)
     except Exception as e:
         raise Exception(f"An error occurred while running the crew: {e}")
-
+    finally:
+        # Force cleanup before exit
+        import atexit
+        atexit._run_exitfuncs()
 
 def train():
     """
     Train the crew for a given number of iterations.
     """
     inputs = {
-        "topic": "AI LLMs",
-        'current_year': str(datetime.now().year)
+        "user_message": "can you give me all the mails that i have received today?",
     }
     try:
         TelegramCrew().crew().train(n_iterations=int(sys.argv[1]), filename=sys.argv[2], inputs=inputs)
@@ -57,8 +58,7 @@ def test():
     Test the crew execution and returns the results.
     """
     inputs = {
-        "topic": "AI LLMs",
-        "current_year": str(datetime.now().year)
+        "user_message": "can you give me all the mails that i have received today?",
     }
 
     try:
@@ -83,8 +83,7 @@ def run_with_trigger():
 
     inputs = {
         "crewai_trigger_payload": trigger_payload,
-        "topic": "",
-        "current_year": ""
+        "user_message": "can you give me all the mails that i have received today?",
     }
 
     try:
