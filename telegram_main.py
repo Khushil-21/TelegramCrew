@@ -1,8 +1,11 @@
 import requests
 import time
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
 # Replace with your bot's token
-BOT_TOKEN = '8053580038:AAFzuFQJ8Hz6mQPthzGij6s0lq9LWraXdds'
+BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
 BASE_URL = f'https://api.telegram.org/bot{BOT_TOKEN}'
 
 
